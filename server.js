@@ -27,17 +27,17 @@ app.get("/api/:dateTime", (req, res) => {
     let dateTime = parseInt(dateTimeString);
     res.json({
       unix: dateTime,
-      utc: new Date(dateTime)
+      utc: new Date(dateTime).toUTCString()
     })
   } else {
     let date = new Date(dateTimeString)
 
-    if (date == "Invalid Date") {
+    if (date.toString() === "Invalid Date") {
       res.json({ error: "Invalid Date" })
     }
     res.json({
       unix: date.valueOf(),
-      utc: date
+      utc: date.toUTCString()
     });
   }
 })

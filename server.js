@@ -23,7 +23,7 @@ app.get("/", (req, res) => {
 //API endpoint
 app.get("/api", (req, res) => {
   let date = new Date();
-  res.json({ unix: date.valueof(), utc: date.toUTCString() })
+  res.json({ unix: date.valueOf(), utc: date.toUTCString() })
 })
 
 app.get("/api/:dateTime", (req, res) => {

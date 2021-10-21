@@ -21,6 +21,11 @@ app.get("/", (req, res) => {
 })
 
 //API endpoint
+app.get("/api", (req, res) => {
+  let date = new Date();
+  res.json({ unix: date.valueof(), utc: date.toUTCString() })
+})
+
 app.get("/api/:dateTime", (req, res) => {
   const { dateTime: dateTimeString } = req.params;
   if (/\d{5,}/.test(dateTimeString)) {

@@ -50,6 +50,6 @@ app.get("/api/:dateTime", (req, res) => {
 //   res.json("Welcome to my climate change News API")
 // })
 
-const port = process.env.PORT || 3000;
-app.listen(port, () => console.log(`server runnig on PORT ${port}`));
+app.set("port", process.env.PORT || 3000);
+app.listen(app.get("port"), () => console.log(`server runnig on PORT ${app.get("port")}`));
 
